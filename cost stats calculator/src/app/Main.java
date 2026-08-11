@@ -18,26 +18,69 @@ public class Main {
 		    inputs[counter] = scnr.nextDouble();
 		    counter += 1;
 		}
-    
-	public static double Total(double[] inputs) {
+	}
+    // this method calculates the sum of the inputs
+	public static double total(double[] inputs) {
 		double total;
 		total = 0;
 		
 		for (int i = 0; i < inputs.length; i++) {
 			total += inputs[i];
 		}
-		    return total;
-		}
-	
-	public static double Average(double[] inputs) {
+		return total;
+	}
+	// this method calculates the average of the sum of inputs
+	public static double average(double[] inputs) {
 		double average;
-		double total = Total(inputs);
+		double total = total(inputs);
 		
 		average = total/inputs.length;
 		return average;
 	}
+	// this method calculates the min and max of the inputs
+	public static double[] findMinAndMax(double[]inputs) {
+		double min;
+		double max;
+		double[] minAndMax;
+		
+		min = inputs[0];
+		max = inputs[0];
+		
+		for (int i = 1; i < inputs.length; i++ ) {
+			if (inputs[i] < min) {
+				min = inputs[i];
+			}
+			if (inputs[i] > max) {
+				max = inputs[i];
+			}
+		}
+		
+		minAndMax = new double[]{min, max};
+		return minAndMax;
+		
+	}
+	
+	//this method calculates the 20 interest
+	public static double interest(double[] inputs) {
+		double interestRate;
+		double totalInterest;
+		
+		interestRate = 0.2;
+		totalInterest = interstRate * total(inputs);
+		
+		return totalInterest;
+	}
+	
+	// this method prints the requested stats
+	public static String[] diplayStats(String[] args) {
+		// 
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+	}
+		
+}
 	
 
-	}
-
-}
