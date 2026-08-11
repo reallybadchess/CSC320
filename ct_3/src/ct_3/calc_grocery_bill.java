@@ -19,7 +19,7 @@ public class calc_grocery_bill {
 		Scanner scnr = new Scanner(System.in);
 		
 		// prompt user to enter the coupon amount
-		// a problem here is that there is no way to catch an InputMismatchException if a use enters a string
+		// a problem here is that there is no way to catch an InputMismatchException if a use enters a string.
 		System.out.print("Enter a coupon amount between .10 AND 1.0: ");
 		couponAmount = scnr.nextDouble();
 		System.out.println("You entered: " + couponAmount);
@@ -61,7 +61,5 @@ public class calc_grocery_bill {
 		
 		System.out.println("---Totals with coupon discounts---");
 		System.out.println("Your monthly discounted average is: " + "$" + discountedTotal + " and your discounted weekly average is: " + "$" + discountedAvg);
-		
 	}
-
 }
