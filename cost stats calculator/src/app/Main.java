@@ -66,7 +66,7 @@ public class Main {
 		double totalInterest;
 		
 		interestRate = 0.2;
-		totalInterest = interstRate * total(inputs);
+		totalInterest = interestRate * total(inputs);
 		
 		return totalInterest;
 	}
