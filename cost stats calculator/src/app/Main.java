@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		// these variables are for working with the while loop
 		int counter = 0;
 		double[] inputs;
 		inputs = new double[5];
@@ -18,7 +19,19 @@ public class Main {
 		    inputs[counter] = scnr.nextDouble();
 		    counter += 1;
 		}
+		
+		// these variable are for holding the method return values
+		double total;
+		double average;
+		double[] minAndMax;
+		double interest;
+		
+		total = total(inputs);
+		average = average(total, counter);
+		minAndMax = findMinAndMax(inputs);
+		interest = interest(total);
 	}
+	
     // this method calculates the sum of the inputs
 	public static double total(double[] inputs) {
 		double total;
@@ -29,14 +42,15 @@ public class Main {
 		}
 		return total;
 	}
+	
 	// this method calculates the average of the sum of inputs
-	public static double average(double[] inputs) {
+	public static double average(double total, int denominator) {
 		double average;
-		double total = total(inputs);
 		
-		average = total/inputs.length;
+		average = total/denominator;
 		return average;
 	}
+	
 	// this method calculates the min and max of the inputs
 	public static double[] findMinAndMax(double[]inputs) {
 		double min;
@@ -54,25 +68,23 @@ public class Main {
 				max = inputs[i];
 			}
 		}
-		
 		minAndMax = new double[]{min, max};
 		return minAndMax;
-		
 	}
 	
 	//this method calculates the 20 interest
-	public static double interest(double[] inputs) {
+	public static double interest(double total) {
 		double interestRate;
 		double totalInterest;
 		
 		interestRate = 0.2;
-		totalInterest = interestRate * total(inputs);
+		totalInterest = interestRate * total;
 		
 		return totalInterest;
 	}
 	
 	// this method prints the requested stats
-	public static String[] diplayStats(String[] args) {
+	public static void diplayStats() {
 		// 
 		System.out.println("");
 		System.out.println("");
