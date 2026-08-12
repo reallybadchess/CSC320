@@ -43,6 +43,7 @@ public class Main {
 		interest = interest(total);
 		
 		// calling displayStats to print the calculated stats
+		System.out.println("--- Statistics ---");
 		displayStats(total, average, minAndMax, interest);
 	}
 	
