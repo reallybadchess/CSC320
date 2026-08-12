@@ -16,8 +16,9 @@ public class Main {
 		
         // while loop for user input
 		while (counter < 5) {
-		    // I need to ensure this while loop asks the user to input a value 5 times
-		    System.out.println("Input a value: ");
+		    // request an input 5 times from the user
+		    int num = counter + 1;
+			System.out.println("Input cost " + num + " in dollars: ");
 		    inputs[counter] = scnr.nextDouble();
 		    counter += 1;
 		}
@@ -33,7 +34,7 @@ public class Main {
 		minAndMax = findMinAndMax(inputs);
 		interest = interest(total);
 		
-		// so does main go at the very bottom since that's where i'll be printing from?
+		// calling displayStats to print the calculated stats
 		displayStats(total, average, minAndMax, interest);
 	}
 	
@@ -91,10 +92,10 @@ public class Main {
 	// this method prints the requested statistics
 	public static void displayStats(double total, double avg, double[] minMax, double interest) {
 		
-		System.out.println("The sum of the user's inputs is: " + String.format("%.2f", total));
-		System.out.println("The average of the user's inputs is: " + String.format("%.2f", avg));
-		System.out.println("The min is: " + minMax[0] + " and the max is: " + minMax[1]);
-		System.out.println("The total interest at the 20% rate is: " + String.format("%.2f", interest));
+		System.out.println("The total cost is: " + "$" + String.format("%.2f", total));
+		System.out.println("The average cost is: " + "$" + String.format("%.2f", avg));
+		System.out.println("The min is: " + "$" + minMax[0] + " and the max is: " + "$" + minMax[1]);
+		System.out.println("The interest on the total cost at the 20% rate is: " + "$" + String.format("%.2f", interest));
 	}
 		
 }
