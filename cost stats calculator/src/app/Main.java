@@ -11,16 +11,24 @@ public class Main {
 		double[] inputs;
 		inputs = new double[5];
 		
-		// // scanner input object
+		
+		
+		// scanner input object
 		Scanner scnr = new Scanner(System.in);
 		
-        // while loop for user input
+		// while loop for user input with hasNextDouble implemented to catch invalid input
 		while (counter < 5) {
-		    // request an input 5 times from the user
+		    // request an input 5 times from the user prompt incorrect if invalid
 		    int num = counter + 1;
 			System.out.println("Input cost " + num + " in dollars: ");
-		    inputs[counter] = scnr.nextDouble();
-		    counter += 1;
+			if (scnr.hasNextDouble()) {
+				inputs[counter] = scnr.nextDouble();
+				counter += 1;
+			}
+			else {
+				scnr.next();
+				System.out.println("Not a valid entry. Try again");
+			}
 		}
 		
 		// these variable are for holding the method return values
