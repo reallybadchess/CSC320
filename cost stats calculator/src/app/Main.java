@@ -1,7 +1,7 @@
 package app;
 import java.util.Scanner;
 
-// My program uses multiple methods to determine the requested stats
+// My program uses multiple methods to determine the requested stats: Total, Average, Min, Max, and Interest (20%)
 
 public class Main {
 
@@ -10,9 +10,11 @@ public class Main {
 		int counter = 0;
 		double[] inputs;
 		inputs = new double[5];
-
+		
+		// // scanner input object
 		Scanner scnr = new Scanner(System.in);
-
+		
+        // while loop for user input
 		while (counter < 5) {
 		    // I need to ensure this while loop asks the user to input a value 5 times
 		    System.out.println("Input a value: ");
@@ -30,6 +32,9 @@ public class Main {
 		average = average(total, counter);
 		minAndMax = findMinAndMax(inputs);
 		interest = interest(total);
+		
+		// so does main go at the very bottom since that's where i'll be printing from?
+		displayStats(total, average, minAndMax, interest);
 	}
 	
     // this method calculates the sum of the inputs
@@ -83,14 +88,13 @@ public class Main {
 		return totalInterest;
 	}
 	
-	// this method prints the requested stats
-	public static void diplayStats() {
-		// 
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
+	// this method prints the requested statistics
+	public static void displayStats(double total, double avg, double[] minMax, double interest) {
+		
+		System.out.println("The sum of the user's inputs is: " + String.format("%.2f", total));
+		System.out.println("The average of the user's inputs is: " + String.format("%.2f", avg));
+		System.out.println("The min is: " + minMax[0] + " and the max is: " + minMax[1]);
+		System.out.println("The total interest at the 20% rate is: " + String.format("%.2f", interest));
 	}
 		
 }
