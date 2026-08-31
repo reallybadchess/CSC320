@@ -19,7 +19,16 @@ public class weeklyTemps {
 
         // ask user for each days average temperature and store it
         for (int i = 0; i < dayNames.length; i++) {
+
             System.out.print("Enter the average temperature for " + dayNames[i] + ": ");
+
+            // keep asking until a valid number is entered
+            while (!input.hasNextDouble()) {
+                System.out.println("That is not a valid number. Please try again.");
+                input.next(); // clears the invalid entry so it is not read again
+                System.out.print("Enter the average temperature for " + dayNames[i] + ": ");
+            }
+
             double temp = input.nextDouble();
             days.add(dayNames[i]);
             temperatures.add(temp);
