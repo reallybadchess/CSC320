@@ -11,7 +11,7 @@ public class weeklyTemps {
         ArrayList<String> days = new ArrayList<>();
         ArrayList<Double> temperatures = new ArrayList<>();
 
-        // day names, in order used to drive the loop 
+        // day names, in order used to drive the loop
         String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday",
                               "Friday", "Saturday", "Sunday"};
 
@@ -27,42 +27,52 @@ public class weeklyTemps {
 
         input.nextLine(); // clears leftover newline left behind by nextDouble()
 
-        System.out.println();
-        System.out.println("Enter a day of the week (Monday-Sunday),");
-        System.out.println("or type \"week\" to see the temperatures for the whole week.");
-        System.out.print("Your choice: ");
-        String choice = input.nextLine();
+        // keep asking until user enters week or a valid day name
+        boolean validInput = false;
 
-        if (choice.equalsIgnoreCase("week")) {
+        while (!validInput) {
 
-            double total = 0;
+            System.out.println();
+            System.out.println("Enter a day of the week (Monday-Sunday),");
+            System.out.println("or type \"week\" to see the temperatures for the whole week.");
+            System.out.print("Your choice: ");
+            String choice = input.nextLine();
 
-            // loop through both arrayLists and print each days temperature
-            for (int i = 0; i < days.size(); i++) {
-                System.out.println(days.get(i) + ": " + temperatures.get(i) + " degrees");
-                total = total + temperatures.get(i);
-            }
+            if (choice.equalsIgnoreCase("week")) {
 
-            // calc the weekly average, rounded to 1 decimal place
-            double average = total / temperatures.size();
-            average = Math.round(average * 10) / 10.0;
+                double total = 0;
 
-            System.out.println("Weekly average temperature: " + average + " degrees");
-
-        } else {
-
-            boolean dayFound = false;
-
-            // loop through the days arrayList looking for a match
-            for (int i = 0; i < days.size(); i++) {
-                if (days.get(i).equalsIgnoreCase(choice)) {
+                // loop through both arrayLists and print each days temperature
+                for (int i = 0; i < days.size(); i++) {
                     System.out.println(days.get(i) + ": " + temperatures.get(i) + " degrees");
-                    dayFound = true;
+                    total = total + temperatures.get(i);
                 }
-            }
 
-            if (!dayFound) {
-                System.out.println(choice + " is not a valid day of the week.");
+                // calc the weekly average, rounded to 1 decimal place
+                double average = total / temperatures.size();
+                average = Math.round(average * 10) / 10.0;
+
+                System.out.println("Weekly average temperature: " + average + " degrees");
+
+                validInput = true;
+
+            } else {
+
+                boolean dayFound = false;
+
+                // loop through the days arrayList looking for a match
+                for (int i = 0; i < days.size(); i++) {
+                    if (days.get(i).equalsIgnoreCase(choice)) {
+                        System.out.println(days.get(i) + ": " + temperatures.get(i) + " degrees");
+                        dayFound = true;
+                    }
+                }
+
+                if (dayFound) {
+                    validInput = true;
+                } else {
+                    System.out.println(choice + " is not a valid day of the week. Please try again.");
+                }
             }
         }
 
